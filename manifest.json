@@ -1,0 +1,69 @@
+{
+    "manifest_version": 2,
+    "name": "SuperStart",
+    "version": "0.1",
+    "description": "SuperStart for home page.",
+    "developer": {
+        "name": "Angbor",
+        "url": "https://addons.mozilla.org/ru/firefox/user/?/"
+    },
+    "applications": {
+        "gecko": {
+            "id": "koni4iva@gmail.com",
+            "strict_min_version": "56.0"
+        }
+    },
+    "options_ui": {
+        "page": "options/options.html",
+        "browser_style": true,
+        "open_in_tab": true
+    },
+    "permissions": [
+        "<all_urls>",
+        "activeTab",
+        "bookmarks",
+        "contextMenus",
+        "idle",
+        "menus",
+        "nativeMessaging",
+        "notifications",
+        "sessions",
+        "storage",
+        "tabs",
+        "topSites",
+        "webNavigation"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "icons": {
+        "48": "pics/superstart.png"
+    },
+    "browser_action": {
+        "default_icon": "img/icon-48.png",
+        "theme_icons": [
+            {
+                "light": "img/icon-48.png",
+                "dark": "img/icon-48.png",
+                "size": 48
+            }
+        ],
+        "default_title": "Options",
+        "default_popup": "options/options.html"
+    },
+    "chrome_url_overrides": {
+        "newtab": "superstart.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://127.0.0.1/*"
+            ],
+            "js": [
+                "alert.js"
+            ]
+        }
+    ]
+}
